@@ -246,7 +246,7 @@ transition: transform 250ms ease-in-out;
 }
 
 
-/* My services */
+/* My services */ 
 .my-services{
     background-color: var(--clr-dark);
     background-image: url(../img/network-1024x768.jpg);
