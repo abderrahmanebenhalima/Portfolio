@@ -1,547 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abderrahmane BENHALIMA · engineer · researcher · full‑stack</title>
-    <!-- Bootstrap 5 + icons + Inter font (best CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Font Awesome 6 (free) as fallback for WeChat icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
-        rel="stylesheet">
+    <title>Abderrahmane BENHALIMA | Full Portfolio & CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
-            color: #0f172a;
-            scroll-behavior: smooth;
         }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 3px solid #2563eb;
-            display: inline-block;
+        /* Elementary OS inspired subtle glassmorphism and blurs */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
-
-        .bg-soft-primary {
-            background-color: #eef2ff;
-        }
-
-        .card-hover {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
-        }
-
-        .skill-badge {
-            background-color: #eef2ff;
-            color: #1e40af;
-            font-weight: 500;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            margin: 0.2rem;
-            display: inline-block;
-            border: 1px solid rgba(37, 99, 235, 0.15);
-        }
-
-        .navbar-blur {
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
-        }
-
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #2563eb;
-            box-shadow: 0 15px 25px -8px rgba(0, 0, 0, 0.15);
-            background: #eef2ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            color: #1e40af;
-            text-align: center;
-        }
-
-        .contact-icon {
-            color: #2563eb;
-            margin-right: 8px;
-            width: 1.8rem;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .contact-icon-white {
-            margin-right: 8px;
-            width: 1.8rem;
-            display: inline-block;
-            text-align: center;
-            color: #f8fafc;
-        }
-
-        .social-icon {
-            font-size: 1.8rem;
-            transition: color 0.2s, transform 0.2s;
-            color: #f8fafc;
-        }
-
-        .social-icon:hover {
-            color: #2563eb;
-            transform: scale(1.1);
-        }
-
-        .footer-link {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-link:hover {
-            color: #2563eb;
-        }
-
-        .badge-soft {
-            background-color: #dbeafe;
-            color: #1e3a8a;
-            font-weight: 500;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2563eb;
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-            z-index: 999;
-        }
-
-        .back-to-top:hover {
-            opacity: 1;
-            color: white;
-        }
-
-        .publication-item {
-            border-left: 3px solid #2563eb;
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(241, 245, 249, 0.6);
         }
     </style>
 </head>
+<body class="text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
 
-<body>
-
-    <!-- navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-blur py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <span style="color:#2563eb;">A.</span> BENHALIMA
+    <nav class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#hero" class="text-lg font-bold tracking-tight text-slate-900 flex items-center gap-2">
+                <span class="bg-gradient-to-r from-blue-600 to-indigo-600 w-3 h-3 rounded-full"></span>
+                Abderrahmane.B
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#research">Research</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
-                </ul>
+            <div class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-600">
+                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
+                <a href="#research" class="hover:text-blue-600 transition-colors">Research</a>
+                <a href="#projects" class="hover:text-blue-600 transition-colors">Projects & Mentorship</a>
+                <a href="#skills" class="hover:text-blue-600 transition-colors">Skills Matrix</a>
+                <a href="#certifications" class="hover:text-blue-600 transition-colors">Credentials</a>
+                <a href="#contact" class="bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-blue-600 transition-all shadow-xs">Contact</a>
             </div>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 hover:text-blue-600 transition-colors">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-lg border-b border-slate-200 px-6 py-6 flex flex-col gap-3 shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">About</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Experience</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Education</a>
+            <a href="#research" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Research</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Projects</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Skills</a>
+            <a href="#certifications" onclick="toggleMobileMenu()" class="text-sm font-medium text-slate-700">Credentials</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="bg-slate-900 text-white text-center py-2 rounded-xl font-medium text-sm">Contact</a>
         </div>
     </nav>
 
-    <!-- hero header with actual photo (preview.jpg) -->
-    <section class="pt-5 mt-5">
-        <div class="container py-5">
-            <div class="row align-items-center g-4">
-                <div class="col-lg-2 col-md-3 text-center text-lg-start">
-                    <!-- profile image with fallback to icon -->
-                    <img src="/home/abderrahmane/Downloads/preview.jpg" alt="Abderrahmane BENHALIMA"
-                        class="profile-photo"
-                        onerror="this.onerror=null; this.style.display='none'; this.insertAdjacentHTML('afterend', '<div class=\'profile-photo\'><i class=\'bi bi-person-circle\' style=\'font-size:5rem;color:#2563eb;\'></i></div>');">
+    <section id="hero" class="pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none z-0">
+            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-100/40 blur-[120px]"></div>
+            <div class="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-indigo-100/40 blur-[100px]"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-8 flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full text-xs font-semibold shadow-2xs text-slate-600 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Network Reliability & Advanced Research
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950 leading-[1.15] mb-6">
+                        Shaping Next-Generation Connectivity Through <br class="hidden lg:inline">
+                        <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">Advanced Engineering & Innovation</span>
+                    </h1>
+                    <p class="text-sm md:text-base text-slate-600 max-w-3xl font-light leading-relaxed mb-6">
+                        I am <span class="font-semibold text-slate-950">Abderrahmane BENHALIMA</span>, a Networks and Telecommunications Engineer currently serving as a <span class="font-semibold text-slate-950">Field Maintenance & Readiness Engineer at Djezzy</span>, alongside being a <span class="font-semibold text-slate-950">PhD Candidate</span> specializing in reconfigurable metamaterial components for advanced medical telemetry.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6">
+                        <a href="#contact" class="px-5 py-2.5 bg-slate-950 text-white rounded-full font-medium shadow-md hover:bg-blue-600 hover:-translate-y-0.5 transition-all text-xs">
+                            Get In Touch <i class="fa-solid fa-arrow-right ml-2 text-[10px] opacity-70"></i>
+                        </a>
+                        <a href="#research" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-full font-medium shadow-2xs hover:bg-slate-50 transition-all text-xs">
+                            View Publications
+                        </a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start gap-5 text-lg text-slate-400">
+                        <a href="https://www.linkedin.com/in/AbderrahmaneBenhalima" target="_blank" class="hover:text-blue-600 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.researchgate.net/profile/Abderrahmane-Benhalima" target="_blank" class="hover:text-emerald-600 transition-colors" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+                        <a href="#contact" class="hover:text-blue-600 transition-colors" title="Contact Channels"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="col-lg-10 col-md-9">
-                    <h1 class="display-4 fw-bold" style="color:#0f172a;">Abderrahmane BENHALIMA</h1>
-                    <div class="fs-3 text-secondary mb-3">FM&R Engineer · PhD candidate · IoT & telecom researcher</div>
-                    <div class="d-flex flex-wrap gap-2 mt-2">
-                        <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm"><i
-                                class="bi bi-code-slash me-2 text-primary"></i>Full‑stack</span>
-                        <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm"><i
-                                class="bi bi-cpu me-2 text-primary"></i>Embedded/IoT</span>
-                        <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm"><i
-                                class="bi bi-antenna me-2 text-primary"></i>RAN / 4G/5G</span>
-                        <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm"><i
-                                class="bi bi-mortarboard me-2 text-primary"></i>Researcher</span>
+
+                <div class="md:col-span-4 flex justify-center">
+                    <div class="glass-panel p-2.5 rounded-3xl shadow-xl max-w-[240px] md:max-w-full transition-transform duration-500 hover:scale-[1.02]">
+                        <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-square shadow-inner">
+                            <img src="preview.jpg" alt="Abderrahmane BENHALIMA" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- professional summary (office‑oriented tone) -->
-    <section id="about" class="py-5 bg-soft-primary">
-        <div class="container">
-            <h2 class="section-title">Professional profile</h2>
-            <div class="row">
-                <div class="col-lg-10">
-                    <p class="lead fs-5 text-secondary">
-                        Networks & Telecommunications Engineer with a strong blend of network operations, academic
-                        research, and full‑stack development.
-                        Currently serving as Field Maintenance & Readiness Engineer at Djezzy (4G/5G RAN, transmission),
-                        while pursuing a PhD in
-                        reconfigurable metamaterial‑based components for medical applications. Extensive experience in
-                        embedded systems, IoT solutions,
-                        and university lecturing (High‑Speed Networks, OOP, Coding). Proven track record of supervising
-                        Master's theses in smart automation,
-                        computer vision, and IoT. Recognized for analytical thinking, mentoring, and cross‑disciplinary
-                        innovation.
+    <section class="pb-16 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <div class="glass-panel p-4 rounded-xl text-center shadow-2xs">
+                <p class="text-xl font-bold text-slate-950">4G/5G RAN</p>
+                <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Telecom Infrastructure</p>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center shadow-2xs">
+                <p class="text-xl font-bold text-blue-600">PhDc</p>
+                <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Telecommunications</p>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center shadow-2xs">
+                <p class="text-xl font-bold text-slate-950">5 Years</p>
+                <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">University Lecturer</p>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center shadow-2xs">
+                <p class="text-xl font-bold text-indigo-600">3 Theses</p>
+                <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Master's Supervised</p>
+            </div>
+            <div class="glass-panel p-4 rounded-xl text-center shadow-2xs col-span-2 md:col-span-1">
+                <p class="text-xl font-bold text-emerald-600">8</p>
+                <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Papers & Conferences</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 border-t border-slate-200 bg-white/50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">Executive Profile</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3">Professional Summary</h2>
+                </div>
+                <div class="md:col-span-2 text-slate-600 text-sm space-y-4 leading-relaxed text-justify">
+                    <p>
+                        Networks and Telecommunications Engineer with extensive experience across mobile network operations, field infrastructure maintenance, university-level lecturing, and academic research. In my current capacity at Djezzy, I manage mission-critical cellular assets, focusing heavily on operational excellence, multi-vendor performance counters, and SLA alignments.
+                    </p>
+                    <p>
+                        Concurrently, my research career as a PhD candidate centers on the study and computational modeling of advanced reconfigurable metamaterial components optimized strictly for Wireless Body Area Networks (WBAN) and medical telemetry. I leverage deep software competency in electromagnetics alongside embedded systems prototyping to design, build, and publish high-impact scalability blueprints that bridge industrial field engineering with institutional scientific research.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- experience (balanced, with office‑ready descriptors) -->
-    <section id="experience" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Work experience</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card card-hover p-4 h-100">
-                        <div class="d-flex align-items-center mb-3"><i
-                                class="bi bi-briefcase-fill fs-2 me-3 text-primary"></i>
-                            <h4 class="mb-0">Field Maintenance & Readiness Engineer</h4>
+    <section id="experience" class="py-16 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-10">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Chronicle</span>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3">Professional Milestones</h2>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:right-auto before:left-4 md:before:left-1/2 before:w-px before:bg-slate-200">
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-blue-600 -translate-x-[5px] ring-4 ring-slate-100 z-10"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right order-2 md:order-1">
+                        <span class="text-[11px] font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Nov 2024 - Present</span>
+                        <h3 class="text-base font-bold text-slate-950 mt-1">Field Maintenance & Readiness Engineer</h3>
+                        <p class="text-xs font-semibold text-blue-500 mb-2">Djezzy · Full-time (On-site)</p>
+                        <p class="text-xs text-slate-600 text-justify leading-relaxed md:inline-block">
+                            Ensure operational integrity and availability of mobile network infrastructure including 4G/5G RAN (BTS, NodeB, eNodeB), transmission systems (Microwave, SDH, Fiber Optic), and site environmental systems. Manage preventive and corrective maintenance activities, lead incident resolution aligned with SLAs, and provide technical oversight to subcontractors and internal teams to maintain service continuity and network KPIs.
+                        </p>
+                        <div class="mt-2 text-[11px] text-slate-500 md:text-right">
+                            <strong>Skills:</strong> RAN Maintenance, 4G/5G, Microwave Links, Fiber Optic, Power Systems, O&M, CAPA, Corrective Maintenance.
                         </div>
-                        <div class="text-primary fw-semibold">Djezzy · Nov 2024 – present</div>
-                        <p class="text-secondary small mb-2"><i class="bi bi-geo-alt me-1"></i>Mascara, Algeria ·
-                            on‑site</p>
-                        <p class="mt-2">Ensure operational integrity of 4G/5G RAN, microwave & fibre optic
-                            infrastructure. Lead incident resolution, subcontractor oversight, and KPI monitoring. Blend
-                            of field expertise and technical coordination.</p>
-                        <div class="mt-3"><span class="skill-badge">RAN</span><span
-                                class="skill-badge">Microwave</span><span class="skill-badge">SDH</span><span
-                                class="skill-badge">O&M</span><span class="skill-badge">CAPA</span></div>
+                    </div>
+                    <div class="hidden md:block w-[46%] order-2"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-indigo-600 -translate-x-[5px] ring-4 ring-slate-100 z-10"></div>
+                    <div class="hidden md:block w-[46%]"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 order-2">
+                        <span class="text-[11px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Nov 2019 - Aug 2024 (4 yrs 10 mos)</span>
+                        <h3 class="text-base font-bold text-slate-950 mt-1">Adjunct Lecturer</h3>
+                        <p class="text-xs font-semibold text-indigo-500 mb-2">Mustapha Stambouli University of Mascara · Part-time (On-site)</p>
+                        <p class="text-xs text-slate-600 text-justify leading-relaxed">
+                            Delivered comprehensive instruction in High-Speed Networks, Object-Oriented Programming in C++, Coding and Compression, and Fundamentals of Electronics. Supervised student research projects, graduation theses, and practical laboratory sessions, fostering technical competency development.
+                        </p>
+                        <div class="mt-2 text-[11px] text-slate-500">
+                            <strong>Skills:</strong> Java, C++, MySQL, Telecommunications, Network Administration, University Lecturing.
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card card-hover p-4 h-100">
-                        <div class="d-flex align-items-center mb-3"><i
-                                class="bi bi-easel-fill fs-2 me-3 text-primary"></i>
-                            <h4 class="mb-0">Adjunct Lecturer</h4>
-                        </div>
-                        <div class="text-primary fw-semibold">Univ. Mascara · Nov 2019 – Aug 2024</div>
-                        <p class="text-secondary small mb-2"><i class="bi bi-geo-alt me-1"></i>Mascara · part‑time</p>
-                        <p class="mt-2">Delivered courses in High‑Speed Networks, OOP (C++/Java), Coding & Compression,
-                            Electronics. Supervised labs and student projects, fostering software & network
-                            competencies.</p>
-                        <div class="mt-3"><span class="skill-badge">Java</span><span
-                                class="skill-badge">MySQL</span><span class="skill-badge">C++</span><span
-                                class="skill-badge">Networking</span><span class="skill-badge">Mentoring</span></div>
+
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center group">
+                    <div class="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-slate-400 -translate-x-[5px] ring-4 ring-slate-100 z-10"></div>
+                    <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right order-2 md:order-1">
+                        <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Feb 2019 (1 month)</span>
+                        <h3 class="text-base font-bold text-slate-950 mt-1">Internship Trainee</h3>
+                        <p class="text-xs font-semibold text-slate-500 mb-2">Algérie Télécom · On-site</p>
+                        <p class="text-xs text-slate-600 text-justify leading-relaxed md:inline-block">
+                            Completed targeted industrial observation at the state-owned telecommunications operator focusing closely on enterprise Intranet systems, Synchronous Digital Hierarchy (SDH) multiplexers, and physical core Optical Fiber distribution links.
+                        </p>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card card-hover p-4 h-100">
-                        <div class="d-flex align-items-center mb-3"><i
-                                class="bi bi-hdd-stack-fill fs-2 me-3 text-primary"></i>
-                            <h4 class="mb-0">Internship trainee</h4>
-                        </div>
-                        <div class="text-primary fw-semibold">Algérie Télécom · Feb 2019</div>
-                        <p class="mt-2">Exposure to SDH, optical fibre infrastructure, and intranet systems at national
-                            operator.</p>
-                        <span class="skill-badge">SDH</span><span class="skill-badge">Optical fiber</span>
-                    </div>
+                    <div class="hidden md:block w-[46%] order-2"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- education + PhD (detailed) -->
-    <section id="education" class="py-5 bg-soft-primary">
-        <div class="container">
-            <h2 class="section-title">Education & academic path</h2>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card card-hover p-4 mb-3">
-                        <div class="d-flex"><i class="bi bi-mortarboard-fill text-primary fs-2 me-3"></i>
-                            <div>
-                                <h4>PhD in Telecommunications (in progress) <span class="badge bg-primary ms-3">research
-                                        focus</span></h4>
-                                <p class="mb-0 text-secondary">Mustapha Stambouli University, Mascara · Jun 2023 –
-                                    present</p>
-                                <p class="mt-2">Reconfigurable metamaterial‑based components for medical applications
-                                    (CST Microwave Studio, HFSS, antenna design).</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-hover p-4 mb-3">
-                        <div class="d-flex"><i class="bi bi-award-fill text-primary fs-2 me-3"></i>
-                            <div>
-                                <h4>Master's in Networks & Telecommunications <span class="badge bg-warning ms-3">Top of
-                                        class · A</span></h4>
-                                <p class="mb-0 text-secondary">Univ. Mascara · 2017–2019</p>
-                                <p class="mt-2">Thesis: intelligent greenhouse with video surveillance (Raspberry Pi,
-                                    Python, IoT, cloud streaming). Coursework: advanced routing, DSP/FPGA, VoIP, Linux,
-                                    optical networks.</p><span class="skill-badge">Advanced routing</span><span
-                                    class="skill-badge">DSP/FPGA</span><span class="skill-badge">VoIP</span><span
-                                    class="skill-badge">Linux</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-hover p-4">
-                        <div class="d-flex"><i class="bi bi-journal-code text-primary fs-2 me-3"></i>
-                            <div>
-                                <h4>Bachelor's in Telecommunications</h4>
-                                <p class="mb-0 text-secondary">Univ. Mascara · 2014–2017</p>
-                                <p class="mt-2">Thesis: motion detection Android app (Java, sensors, TCP/IP
-                                    client‑server). Solid foundation in signal theory, electronics, and programming.</p>
-                                <span class="skill-badge">Android</span><span class="skill-badge">TCP/IP</span><span
-                                    class="skill-badge">Signal theory</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section id="education" class="py-16 border-t border-slate-200 bg-slate-50/50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-10">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">Academia</span>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3">Educational Track</h2>
             </div>
-        </div>
-    </section>
 
-    <!-- skills (office‑oriented categories) -->
-    <section id="skills" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Technical competencies</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h5><i class="bi bi-cpu me-2 text-primary"></i>Embedded & IoT</h5>
-                        <div class="mt-3"><span class="skill-badge">Raspberry Pi</span><span
-                                class="skill-badge">Arduino</span><span class="skill-badge">ESP8266</span><span
-                                class="skill-badge">OpenCV</span><span class="skill-badge">Tesseract</span><span
-                                class="skill-badge">Blynk</span><span class="skill-badge">sensors: MQ-4,
-                                HC-SR04</span><span class="skill-badge">ACS712</span><span
-                                class="skill-badge">RTC</span><span class="skill-badge">camera modules</span></div>
+            <div class="grid gap-6">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-3xs">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-base font-bold text-slate-950">PhD Candidate in Telecommunications</h3>
+                        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-sm sm:self-start">June 2023 - Present</span>
+                    </div>
+                    <p class="text-xs font-medium text-slate-500 mb-2">Mustapha Stambouli University of Mascara — Mascara, Algeria</p>
+                    <p class="text-xs text-slate-600 mb-3 text-justify">
+                        <strong>Research Focus:</strong> Comprehensive study and computational design of electromagnetic reconfigurable metamaterial-based components specifically optimized for wireless body area telemetry and biomedical diagnostic applications.
+                    </p>
+                    <div class="text-[11px] text-slate-500">
+                        <strong>Core Specializations:</strong> Antenna Design, Metamaterials, CST Microwave Studio, ANSYS HFSS, Medical Device Design.
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h5><i class="bi bi-code-slash me-2 text-primary"></i>Full‑stack & languages</h5>
-                        <div class="mt-3"><span class="skill-badge">Java</span><span
-                                class="skill-badge">Python</span><span class="skill-badge">C/C++</span><span
-                                class="skill-badge">PHP</span><span class="skill-badge">JavaScript</span><span
-                                class="skill-badge">HTML/CSS</span><span class="skill-badge">Bootstrap</span><span
-                                class="skill-badge">Flask</span><span class="skill-badge">MySQL</span><span
-                                class="skill-badge">Chart.js</span><span class="skill-badge">FPDF</span></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
-                        <h5><i class="bi bi-antenna me-2 text-primary"></i>Telecom & networks</h5>
-                        <div class="mt-3"><span class="skill-badge">4G/5G RAN</span><span
-                                class="skill-badge">Microwave</span><span class="skill-badge">DWDM/OTN</span><span
-                                class="skill-badge">SDH</span><span class="skill-badge">TCP/IP</span><span
-                                class="skill-badge">NMS (ZENIC/UME)</span><span class="skill-badge">CST/HFSS</span><span
-                                class="skill-badge">Proteus</span><span class="skill-badge">TinkerCAD</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- supervised & personal projects (core strength) -->
-    <section id="projects" class="py-5 bg-soft-primary">
-        <div class="container">
-            <h2 class="section-title">Key projects & supervision</h2>
-            <div class="row g-4">
-                <!-- ANPR supervision -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-success w-auto mb-2 px-3 py-2 align-self-start">Supervised Master thesis
-                            2024</span>
-                        <h4>🚗 ANPR access control</h4>
-                        <p class="text-secondary">RPi4, OpenCV/Tesseract OCR, dual‑camera entry/exit, PHP/MySQL
-                            dashboard, servo gate. Real‑time plate recognition and logging.</p>
-                        <div><span class="skill-badge">OpenCV</span><span class="skill-badge">RPi</span><span
-                                class="skill-badge">PHP</span><span class="skill-badge">Bootstrap</span></div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-3xs">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-base font-bold text-slate-950">Master's Degree, Networks & Telecommunications</h3>
+                            <span class="text-[10px] font-extrabold bg-blue-600 text-white px-1.5 py-0.5 rounded">TOP OF CLASS</span>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-sm sm:self-start">2017 - 2019</span>
                     </div>
-                </div>
-                <!-- smart home supervision -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-success w-auto mb-2 px-3 py-2 align-self-start">Supervised Master thesis
-                            2022</span>
-                        <h4>🏠 Smart home automation</h4>
-                        <p class="text-secondary">Arduino UNO + Ethernet, MQ‑4, KY‑013, HC‑SR04, flame, LDR. Blynk IoT,
-                            Flask video stream, email alerts, TinkerCAD simulation.</p>
-                        <div><span class="skill-badge">Arduino</span><span class="skill-badge">Blynk</span><span
-                                class="skill-badge">C++</span><span class="skill-badge">Flask</span><span
-                                class="skill-badge">OpenCV</span></div>
-                    </div>
-                </div>
-                <!-- smart lighting supervision -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-success w-auto mb-2 px-3 py-2 align-self-start">Supervised Master thesis
-                            2024</span>
-                        <h4>💡 Smart public lighting</h4>
-                        <p class="text-secondary">Arduino + ACS712 current sensing, DS3231 RTC, solar trigger, PHP/MySQL
-                            + Chart.js, PDF reporting (FPDF). Fault detection & energy optimization.</p>
-                        <div><span class="skill-badge">ACS712</span><span class="skill-badge">Chart.js</span><span
-                                class="skill-badge">FPDF</span><span class="skill-badge">Proteus</span></div>
-                    </div>
-                </div>
-                <!-- personal: smart greenhouse -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-primary w-auto mb-2 px-3 py-2 align-self-start">Master thesis
-                            project</span>
-                        <h4>🌱 Smart greenhouse (IoT surveillance)</h4>
-                        <p class="text-secondary">RPi3, camera, PIR/LDR, YouTube RTMP streaming, MEGA cloud backup, TFT
-                            touchscreen. Python (picamera, gpiozero).</p>
-                        <div><span class="skill-badge">RPi</span><span class="skill-badge">Python</span><span
-                                class="skill-badge">MJPEG</span><span class="skill-badge">MEGA sync</span></div>
-                    </div>
-                </div>
-                <!-- personal: android motion -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-primary w-auto mb-2 px-3 py-2 align-self-start">Bachelor thesis
-                            project</span>
-                        <h4>📱 Motion detection (Android)</h4>
-                        <p class="text-secondary">Java Android + TCP socket server, GPS/accelerometer, SQL backend.
-                            Real‑time classification (walk, run, vehicle).</p>
-                        <div><span class="skill-badge">Android</span><span class="skill-badge">Socket</span><span
-                                class="skill-badge">SQL</span><span class="skill-badge">NetBeans</span></div>
-                    </div>
-                </div>
-                <!-- personal: irrigation -->
-                <div class="col-lg-6">
-                    <div class="card card-hover p-4 h-100">
-                        <span class="badge bg-primary w-auto mb-2 px-3 py-2 align-self-start">Personal project</span>
-                        <h4>💧 CASTRA‑NOVA smart irrigation</h4>
-                        <p class="text-secondary">Arduino + soil moisture/temp sensors, Android control, relay
-                            automation.</p>
-                        <div><span class="skill-badge">Arduino</span><span class="skill-badge">Android</span><span
-                                class="skill-badge">wireless</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- research & publications (ordered by time, most recent first) -->
-    <section id="research" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Research & publications</h2>
-            <div class="row">
-                <div class="col-12">
-                    <!-- 2025 publications -->
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>PTFE substrate‑based integrated SIW‑CSRR patch antenna for dual‑band medical
-                                    applications</strong><br>
-                                <span class="text-secondary">The 2nd International Conference on Advances in
-                                    Electronics, Control and Computer Technologies (ICAECCT'25) · December 2025,
-                                    Mascara</span>
-                            </div>
+                    <p class="text-xs font-medium text-slate-500 mb-2">Mustapha Stambouli University of Mascara (Graduated with Highest Honors - Grade: A)</p>
+                    <p class="text-xs text-slate-600 mb-3">
+                        <strong>Thesis:</strong> Study and Implementation of an Intelligent Greenhouse - Video Surveillance Management
+                    </p>
+                    
+                    <button onclick="toggleEduDetails('master-courses')" class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 focus:outline-none mb-3">
+                        <span>Show Full Coursework & Achievements</span> <i id="master-icon" class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+                    
+                    <div id="master-courses" class="hidden pl-4 border-l-2 border-slate-200 space-y-3 mb-2 text-xs text-slate-600">
+                        <div>
+                            <strong>Advanced Telecommunications:</strong> Advanced Digital Communications, IP Routing, Wireless and Mobile Networks, Satellite Networks.
+                        </div>
+                        <div>
+                            <strong>Network Engineering:</strong> Network Services Administration, High-Speed Networks, Operator Networks, Cryptography and Network Security.
+                        </div>
+                        <div>
+                            <strong>Signal Processing & Hardware:</strong> Advanced Signal Processing, DSP and FPGA, Coding and Compression.
+                        </div>
+                        <div>
+                            <strong>Optical & Multimedia Systems:</strong> Fiber Optics, Transmission Channels, VoIP, Web Technologies, Digital Television, Linux/C++ OOP.
+                        </div>
+                        <div class="pt-1 bg-slate-50 p-2.5 rounded-lg text-slate-700">
+                            <strong>Key Academic Benchmarks:</strong> Embedded Raspberry Pi pipeline architectures, custom Python automation engines, sensor arrays integration, cloud API orchestration, live RTMP stream mapping.
                         </div>
                     </div>
+                </div>
 
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>Material‑performance correlation in microstrip antennas (recycled polypropylene
-                                    substrates)</strong><br>
-                                <span class="text-secondary">The 2nd International Conference on Advances in
-                                    Electronics, Control and Computer Technologies (ICAECCT'25) · December 2025,
-                                    Mascara</span>
-                            </div>
-                        </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-3xs">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                        <h3 class="text-base font-bold text-slate-950">Licentiate Degree (Bachelor's), Telecommunications Engineering</h3>
+                        <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-sm sm:self-start">2014 - 2017</span>
                     </div>
+                    <p class="text-xs font-medium text-slate-500 mb-2">Mustapha Stambouli University of Mascara — Mascara, Algeria</p>
+                    <p class="text-xs text-slate-600 mb-3">
+                        <strong>Thesis:</strong> Motion Type Detection Using Android (Real-time kinematic classification modeling)
+                    </p>
 
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>Etude et conception des composants reconfigurables à base de méta‑matériaux pour
-                                    les applications médicales</strong><br>
-                                <span class="text-secondary">Journée Doctorale en Télécommunications (JDT'25) · June
-                                    2025, Mascara</span>
-                            </div>
+                    <button onclick="toggleEduDetails('bachelor-courses')" class="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 focus:outline-none mb-3">
+                        <span>Show Full Coursework & Achievements</span> <i id="bachelor-icon" class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </button>
+
+                    <div id="bachelor-courses" class="hidden pl-4 border-l-2 border-slate-200 space-y-3 mb-2 text-xs text-slate-600">
+                        <div>
+                            <strong>Core Engineering Foundations:</strong> Analog & Digital Communications, Signal Theory, Combinatorial/Sequential Digital Logic, Sensors & Measurements.
                         </div>
-                    </div>
-
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>A novel dual‑band microstrip patch antenna with SIW and CSRR integration for
-                                    medical monitoring and imaging applications</strong><br>
-                                <span class="text-secondary">The First National Conference on Emerging Trends in
-                                    Engineering and Technology (NC2ET'25) · April 2025, Mascara</span>
-                            </div>
+                        <div>
+                            <strong>RF & Support Infrastructure:</strong> Waves and Propagation, Antennas and Transmission Lines, Local LAN Architecture, Telephony Systems, Interfacing.
                         </div>
-                    </div>
-
-                    <!-- 2024 publication -->
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>Etude et conception des composants reconfigurables à base de méta‑matériaux pour
-                                    les applications médicales</strong><br>
-                                <span class="text-secondary">Journée Doctorale en Télécommunications (JDT'24) · April
-                                    2024, Mascara</span>
-                            </div>
+                        <div>
+                            <strong>Mathematics & Sciences:</strong> Probability, Statistics, Information Security Principles, Telecommunications Law regulations.
                         </div>
-                    </div>
-
-                    <!-- 2023 publication -->
-                    <div class="publication-item">
-                        <div class="d-flex align-items-start">
-                            <i class="bi bi-file-text-fill text-primary me-3 fs-4"></i>
-                            <div>
-                                <strong>Wireless technology in medical applications: state of the art, challenges, and
-                                    opportunities</strong><br>
-                                <span class="text-secondary">The 1st International Conference on Advances in
-                                    Electronics, Control and Computer Technologies (ICAECCT'23) · October 2023,
-                                    Mascara</span>
-                            </div>
+                        <div class="pt-1 bg-slate-50 p-2.5 rounded-lg text-slate-700">
+                            <strong>Key Academic Benchmarks:</strong> Native Android programming (Java), client-server TCP/IP socket structures, local SQLite databases integration, hardware sensor matrix parsing.
                         </div>
                     </div>
                 </div>
@@ -549,103 +302,547 @@
         </div>
     </section>
 
-    <!-- certifications + languages + professional development -->
-    <section class="py-5 bg-soft-primary">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3"><i class="bi bi-patch-check-fill text-primary me-2"></i>Key
-                        certifications</h3>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><span class="fw-semibold">ZCIP-OTN</span> (ZTE, training in China 2025) – DWDM,
-                            OTN, ROADM, ZENIC ONE</li>
-                        <li class="mb-3"><span class="fw-semibold">RAN Field Support / O&M</span> – ZTE (Apr 2025)</li>
-                        <li class="mb-3"><span class="fw-semibold">NMS Applications</span> – ZTE (Apr 2025)</li>
-                        <li class="mb-3"><span class="fw-semibold">Full Stack Dev</span> – Udacity (2020)</li>
-                        <li class="mb-3"><span class="fw-semibold">Android App Development</span> – Udemy (2020)</li>
-                        <li class="mb-3"><span class="fw-semibold">Cisco Networking & Security</span> – ICT Towers
-                            (2017)</li>
-                    </ul>
+    <section id="research" class="py-16 border-t border-slate-200 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-full pointer-events-none z-0 opacity-5">
+            <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-blue-500 blur-[80px]"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="mb-10">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full">Scientific Track</span>
+                <h2 class="text-2xl font-bold tracking-tight text-white mt-3">Publications & Papers</h2>
+            </div>
+
+            <div class="bg-slate-800/60 border border-slate-700 p-5 md:p-6 rounded-2xl mb-6">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-square-check"></i> Peer-Reviewed Journal Publication (2026)
                 </div>
-                <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3"><i class="bi bi-translate text-primary me-2"></i>Languages &
-                        distinction</h3>
-                    <div class="bg-white p-4 rounded-4 shadow-sm mb-4">
-                        <p><strong>🇩🇿 Arabic</strong> – native</p>
-                        <p><strong>🇬🇧 English</strong> – upper‑intermediate (B2 level exam completed, B1 certified
-                            CEIL 2022‑23)</p>
-                        <p><strong>🇫🇷 French</strong> – limited working</p>
-                        <hr>
-                        <p class="mb-0"><i class="bi bi-trophy-fill text-warning me-2"></i> <strong>Top of the
-                                class</strong> – Master's Networks & Telecommunications (2019, grade A)</p>
-                    </div>
-                    <!-- Professional development card (added from CV) -->
-                    <div class="bg-white p-4 rounded-4 shadow-sm">
-                        <h4 class="fs-5 fw-semibold mb-3"><i
-                                class="bi bi-arrow-repeat text-primary me-2"></i>Professional development</h4>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 small"></i>ZTE
-                                International Training (China 2025) – OTN & network management</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 small"></i>5+
-                                conference papers on antenna design & medical applications</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 small"></i>Continuous
-                                learning: workshops, industry conferences</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 small"></i>Student
-                                mentorship: 3 Master's theses (2021‑2024) in IoT & computer vision</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2 small"></i>Academic
-                                teaching: 5 years university‑level instruction</li>
+                <h3 class="text-base md:text-lg font-bold text-white mb-2 leading-snug">
+                    A Novel Ultrathin Reconfigurable Metamaterial Antenna with Dual CSRR-DGS for Wireless Body Area Networks and Adaptive Medical Telemetry in the 2.2-2.4 GHz ISM Band: A 16-State PIN Diode Implementation
+                </h3>
+                <div class="text-xs text-slate-300 mb-3 font-light">
+                    <strong>Authors:</strong> Abderrahmane Benhalima, Benzerga Fellah, Samir Ghouali and Mohammed Berka <br>
+                    <strong>Journal:</strong> <span class="text-slate-100 italic">Physica Scripta</span> | <strong>Publisher:</strong> IOP Publishing Ltd. | <strong>Date:</strong> May 11, 2026
+                </div>
+                <a href="https://doi.org/10.1088/1402-4896/ae6bc0" target="_blank" class="inline-flex items-center text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">
+                    View Published Paper DOI <i class="fa-solid fa-up-right-from-square ml-1.5 text-[10px]"></i>
+                </a>
+            </div>
+
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">International Conferences</h3>
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-slate-800/40 border border-slate-700/50 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-indigo-400 uppercase tracking-wider bg-indigo-950 px-2 py-0.5 rounded">ICAECCT'25</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-2">PTFE Substrate-Based Integrated SIW-CSRR Patch Antenna: A Compact Solution for Dual-Frequency Medical Applications</h4>
+                    <p class="text-[11px] text-slate-400 italic">Dec 9, 2025 · Mascara, Algeria</p>
+                </div>
+                <div class="bg-slate-800/40 border border-slate-700/50 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-indigo-400 uppercase tracking-wider bg-indigo-950 px-2 py-0.5 rounded">ICAECCT'25</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-2">Material-Performance Correlation in Microstrip Antennas: Electromagnetic Characterization of Virgin and Recycled Polypropylene Substrates</h4>
+                    <p class="text-[11px] text-slate-400 italic">Dec 9, 2025 · Mascara, Algeria</p>
+                </div>
+                <div class="bg-slate-800/40 border border-slate-700/50 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-indigo-400 uppercase tracking-wider bg-indigo-950 px-2 py-0.5 rounded">ICAECCT'23</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-2">Wireless Technology in Medical Applications: State of the Art, Challenges, and Opportunities</h4>
+                    <p class="text-[11px] text-slate-400 italic">Oct 25, 2023 · Mascara, Algeria</p>
+                </div>
+            </div>
+
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">National Conferences & Study Days</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-800/30 border border-slate-700/30 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-blue-400 uppercase tracking-wider bg-blue-950/80 px-2 py-0.5 rounded">5G/6G & AI Study Day</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-1">AI-Accelerated Antenna Design for Modern and Next-Generation ISM Band Applications: A Comparative Study of ML Regression Algorithms</h4>
+                    <p class="text-[11px] text-slate-400 italic">Apr 14, 2026 · Faculty of Science and Technology, Mascara</p>
+                </div>
+                <div class="bg-slate-800/30 border border-slate-700/30 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-blue-400 uppercase tracking-wider bg-blue-950/80 px-2 py-0.5 rounded">5G/6G & AI Study Day</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-1">Broadband Dual-Band 5G mmWave Microstrip Patch Antenna Design Using Polypropylene Substrates: From Recycled to Virgin Materials</h4>
+                    <p class="text-[11px] text-slate-400 italic">Apr 14, 2026 · Faculty of Science and Technology, Mascara</p>
+                </div>
+                <div class="bg-slate-800/30 border border-slate-700/30 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider bg-slate-800 px-2 py-0.5 rounded">JDT'25 (Doctoral Day)</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-1">Etude et conception des composants reconfigurables à base de méta-matériaux pour les applications médicales</h4>
+                    <p class="text-[11px] text-slate-400 italic">June 19, 2025 · Département d'Électrotechnique, Mascara</p>
+                </div>
+                <div class="bg-slate-800/30 border border-slate-700/30 p-4 rounded-xl">
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider bg-slate-800 px-2 py-0.5 rounded">NC2ET'25 (National Conf)</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-1">A Novel Dual-Band Microstrip Patch Antenna with SIW and CSRR Integration for Medical Monitoring and Imaging Applications</h4>
+                    <p class="text-[11px] text-slate-400 italic">Apr 23, 2025 · Mustapha Stambouli University of Mascara</p>
+                </div>
+                <div class="bg-slate-800/30 border border-slate-700/30 p-4 rounded-xl md:col-span-2">
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider bg-slate-800 px-2 py-0.5 rounded">JDT'24 (Doctoral Day)</span>
+                    <h4 class="text-xs font-semibold text-white mt-2 mb-1">Etude et conception des composants reconfigurables à base de méta-matériaux pour les applications médicales</h4>
+                    <p class="text-[11px] text-slate-400 italic">April 16, 2024 · Mustapha Stambouli University of Mascara</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">Engineering Showcase</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3">Projects & Thesis Mentorship</h2>
+                </div>
+                <div class="flex gap-2 border-b border-slate-200 text-xs font-medium pb-1" id="project-tabs">
+                    <button onclick="switchTab('all')" class="px-3 py-1 text-blue-600 border-b-2 border-blue-600 font-semibold" id="tab-all">All Projects</button>
+                    <button onclick="switchTab('core')" class="px-3 py-1 text-slate-500 hover:text-slate-800" id="tab-core">Core Own Projects</button>
+                    <button onclick="switchTab('mentorship')" class="px-3 py-1 text-slate-500 hover:text-slate-800" id="tab-mentorship">Master's Supervisions</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 transition-all duration-300" id="projects-container">
+                <div class="glass-panel p-5 rounded-2xl shadow-3xs border border-slate-200 flex flex-col justify-between project-card core">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase bg-slate-100 px-2 py-0.5 rounded">Master's Thesis</span>
+                            <span class="text-xs font-semibold text-slate-500">2018 - 2019</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-950 mb-2">Smart Greenhouse: Intelligent Video Surveillance</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed text-justify mb-3">
+                            Comprehensive IoT system combining hardware integration and cloud networks for tracking plant evolution and detecting intrusions. Engineered local MJPEG streaming via Python servers and mapped global feeds to YouTube Live via RTMP protocol structures. Formulated storage engines triggering multi-threaded local directory loops and synchronized cloud uploads with MEGA API targets.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 list-disc pl-4 space-y-1 mb-4">
+                            <li>Orchestrated Raspberry Pi 3, PiCamera, PIR, and LDR sensors.</li>
+                            <li>Integrated localized monitoring through a 5-inch TFT LCD touchscreen.</li>
+                            <li>Automated cloud pipelines managing 70GB remote storage arrays.</li>
                         </ul>
                     </div>
+                    <div class="flex flex-wrap gap-1 pt-2 border-t border-slate-100">
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Raspberry Pi</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Python Engine</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">RTMP Protocols</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">MEGA Cloud API</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl shadow-3xs border border-slate-200 flex flex-col justify-between project-card core">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase bg-slate-100 px-2 py-0.5 rounded">Bachelor's Thesis</span>
+                            <span class="text-xs font-semibold text-slate-500">2016 - 2017</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-950 mb-2">Android Motion Detection & Classification</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed text-justify mb-3">
+                            Built a real-time motion parsing system optimized for emergency rescue workflows. Programmed a native Android client reading accelerometer and GPS streams to map spatial parameters into specific kinematic vectors (walking, running, standing, vehicular thresholds). Designed a secure TCP/IP backend to aggregate telemetry logs.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 list-disc pl-4 space-y-1 mb-4">
+                            <li>Constructed NetBeans multi-threaded server interface.</li>
+                            <li>Mapped data parameters safely into centralized relational SQL layers.</li>
+                            <li>Programmed secure socket validation checking client-side nodes.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-1 pt-2 border-t border-slate-100">
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Java Native</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Android Studio</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">TCP/IP Sockets</span>
+                        <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded">SQL Database</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl shadow-3xs border border-slate-200 flex flex-col justify-between project-card mentorship">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Co-Supervisor Role</span>
+                            <span class="text-xs font-semibold text-slate-500">M.Sc Thesis · 2023 - 2024</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-950 mb-2">Automated Access Control (ANPR System)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed text-justify mb-3">
+                            Guided students through constructing a full edge automation gate security network. Supervised the implementation of OpenCV processing structures paired with Tesseract OCR runtimes to parse registration numbers from entry/exit cameras. Led development of a full-stack PHP portal logging institutional analytics.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 list-disc pl-4 space-y-1 mb-4">
+                            <li>Taught OpenCV, pytesseract, and picamera core frameworks.</li>
+                            <li>Engineered hardware triggers managing relays and physical servo barriers.</li>
+                            <li>Implemented central database authorization logs and override nodes.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-1 pt-2 border-t border-slate-100">
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">OpenCV Vision</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Raspberry Pi 4</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Tesseract OCR</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Full Stack PHP</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl shadow-3xs border border-slate-200 flex flex-col justify-between project-card mentorship">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Co-Supervisor Role</span>
+                            <span class="text-xs font-semibold text-slate-500">M.Sc Thesis · 2021 - 2022</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-950 mb-2">Comprehensive Smart Home Automation System</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed text-justify mb-3">
+                            Mentored a comprehensive multi-layered automation environment integrating extensive sensory arrays. Guided the hardware mapping of gas (MQ-4), temperature (KY-013), and fire modules to Arduino chips. Coached students on setting up mobile interfaces via Blynk IoT pipelines and rendering parallel camera matrices over custom Flask backends.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 list-disc pl-4 space-y-1 mb-4">
+                            <li>Configured Arduino Ethernet Shield 2 pipelines over local TCP/IP frameworks.</li>
+                            <li>Orchestrated safety rules triggering instant warning logs via SMTP.</li>
+                            <li>Trained students on hardware circuit modeling inside TinkerCAD tools.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-1 pt-2 border-t border-slate-100">
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Arduino C++</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Blynk IoT Platform</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Python Flask</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Network Security</span>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-2xl shadow-3xs border border-slate-200 flex flex-col justify-between project-card mentorship md:col-span-2">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-0.5 rounded">Co-Supervisor Role</span>
+                            <span class="text-xs font-semibold text-slate-500">M.Sc Thesis · 2023 - 2024</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-950 mb-2">Smart Public Lighting & Distributed Diagnostics</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed text-justify mb-3">
+                            Supervised development of a distributed IoT municipal network optimized for real-time energy profiling and automated line failure prediction. Guided the mathematical tracking of current patterns using ACS712 sensors and clock sequencing through DS3231 RTC chips. Mentored full-stack dashboard creation running real-time charts and automated administrative reporting modules.
+                        </p>
+                        <ul class="text-[11px] text-slate-500 list-disc pl-4 space-y-1 mb-4">
+                            <li>Managed the calibration loops of ACS712 sensors linked to local microcontrollers.</li>
+                            <li>Supervised administrative layout styling (Bootstrap, Chart.js, and FPDF metrics).</li>
+                            <li>Validated power-saving photo-voltaic logic layouts in Proteus ISIS frameworks.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-1 pt-2 border-t border-slate-100">
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Arduino Uno</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">ACS712 Diagnostics</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">Bootstrap & Chart.js</span>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">FPDF Report Lib</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- contact footer with clickable icons and WeChat ID (using Font Awesome for WeChat) -->
-    <section id="contact" class="py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-7">
-                    <h2 class="text-white fs-2 mb-3">Connect</h2>
-                    <div class="d-flex flex-wrap gap-4">
-                        <span><i class="bi bi-envelope-fill contact-icon-white"></i> a_benhalima@yahoo.com</span>
-                        <span><i class="bi bi-telephone-fill contact-icon-white"></i> +213 790 107 421 | +213 666 201
-                            374</span>
-                        <!-- WeChat icon from Font Awesome (fa-weixin) - now visible -->
-                        <span><i class="fab fa-weixin contact-icon-white"></i> B_Abderrahmane</span>
-                        <span><i class="bi bi-geo-alt-fill contact-icon-white"></i> Mascara, Algeria</span>
-                    </div>
-                    <div class="mt-4 d-flex gap-4">
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com/in/AbderrahmaneBenhalima" target="_blank" rel="noopener"
-                            class="social-icon" title="LinkedIn">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <!-- ResearchGate (using book icon as representative) -->
-                        <a href="https://www.researchgate.net/profile/Abderrahmane-Benhalima" target="_blank"
-                            rel="noopener" class="social-icon" title="ResearchGate">
-                            <i class="bi bi-book"></i>
-                        </a>
-                        <!-- Email -->
-                        <a href="mailto:a_benhalima@yahoo.com" class="social-icon" title="Email">
-                            <i class="bi bi-envelope-fill"></i>
-                        </a>
+    <section id="skills" class="py-16 border-t border-slate-200 bg-slate-50/50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="mb-10">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-violet-600 bg-violet-50 px-2.5 py-1 rounded-full">Competencies</span>
+                <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3">Technical Proficiency Matrix</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Telecom & Operator Networks</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">4G/5G RAN (BTS, NodeB, eNodeB)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Microwave Transmission Paths</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">DWDM, OTN, ROADM Layer Architecture</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">ZTE Core Network (9700, UME, ZENIC ONE)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">SDH Multiplexing & Fiber Optics</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">IP Routing & Satellite Networks</span>
                     </div>
                 </div>
-                <div class="col-md-5 text-md-end mt-4 mt-md-0">
-                    <p class="text-secondary">El Amel City, Zone 9, Mascara 29092, Algeria</p>
-                    <p class="small text-secondary opacity-75">© 2025 Abderrahmane BENHALIMA – all information based on
-                        CV</p>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Embedded & IoT Networks</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Raspberry Pi (GPIO, Camera Modules)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Arduino (Uno, Ethernet Shield 2)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">ESP8266 Microcontrollers</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Calibration (ACS712, MQ-4, DS3231)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Computer Vision (OpenCV, Tesseract OCR)</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Core Programming Core</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Java (Core Expert)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Python (Automation, Scripting)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">C++ (Object-Oriented Frameworks)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">C#, Kotlin, Embedded C</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Bash Scripting Automation</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-wave-square"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Electromagnetics & RF Modeling</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">CST Microwave Studio</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">ANSYS HFSS Software</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Metamaterial Component Structuring</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Antenna Array Optimization</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Substrate Property Analysis</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Web Dev & Databases</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Full Stack PHP / MySQL Architecture</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Python Flask Application Pipelines</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">SQLite, SQL, JDBC Core Mappings</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Bootstrap 4, HTML5, CSS3, Chart.js</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">RTMP Protocols & YouTube API Sync</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-3xs">
+                    <div class="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-3 text-xs"><i class="fa-solid fa-display"></i></div>
+                    <h3 class="font-bold text-slate-950 mb-2 text-xs">Environments & Platforms</h3>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Linux OS Administration (Debian, Ubuntu)</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Windows 11 Dual-Boot Topologies</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Android Studio & native SDK Toolsets</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Git / GitHub Version Infrastructure</span>
+                        <span class="text-[10px] bg-slate-50 text-slate-600 px-2 py-0.5 rounded">Proteus ISIS & TinkerCAD Prototyping</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- back to top button (polish) -->
-    <a href="#" class="back-to-top"><i class="bi bi-arrow-up-short"></i></a>
+    <section id="certifications" class="py-16 border-t border-slate-200 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-certificate text-blue-600"></i> Industry & Corporate Credentials
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-2 border-blue-500 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">ZCIP-OTN (ZTE Certified ICT Professional in Optical Transport Network)</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">ZTE Corporation (Intensive Training in China, 2025)</p>
+                            <p class="text-[10px] text-slate-500 mt-0.5">Skills: DWDM, ROADM, OTN, NMS, ZENIC ONE, Network Planning, ZTE 9700</p>
+                        </div>
+                        <div class="border-l-2 border-blue-400 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">RAN Field Support & Maintenance Certificates</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">ZTE Corporation (Issued April 2025)</p>
+                            <p class="text-[10px] text-slate-500 mt-0.5">Two Dedicated Certifications: 1. Field Support Course | 2. Operation & Maintenance Training Track</p>
+                        </div>
+                        <div class="border-l-2 border-slate-300 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">NMS Applications Training Course</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">ZTE Corporation (Issued April 2025)</p>
+                            <p class="text-[10px] text-slate-500 mt-0.5">Skills: Network Management Systems, UME Infrastructure platforms, RAN modules</p>
+                        </div>
+                        <div class="border-l-2 border-slate-300 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">Full Stack Development Track</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">Udacity Nanodegree Program (Issued July 2020)</p>
+                        </div>
+                        <div class="border-l-2 border-slate-300 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">The Complete Android App Development</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">Udemy Academy (Issued October 2020)</p>
+                        </div>
+                        <div class="border-l-2 border-slate-300 pl-3">
+                            <h4 class="text-xs font-bold text-slate-950">Cisco Networking & Security Fundamentals</h4>
+                            <p class="text-[11px] text-blue-600 font-medium">ICT Towers (Issued January 2017)</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-language text-indigo-600"></i> Language Fluency & Accreditations
+                        </h3>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-3">
+                            <div>
+                                <div class="flex items-center justify-between text-xs font-bold text-slate-950">
+                                    <span>English</span>
+                                    <span class="text-blue-600 bg-blue-50 px-2 py-0.5 rounded text-[10px]">Upper-Intermediate</span>
+                                </div>
+                                <ul class="text-[11px] text-slate-600 list-disc pl-4 mt-1 space-y-0.5">
+                                    <li><strong>Certified B1 Level:</strong> Intensive Language Teaching Center (CEIL), Mustapha Stambouli University of Mascara (2022-2023).</li>
+                                    <li><strong>Completed B2 Examination:</strong> Official Certification process is currently pending.</li>
+                                </ul>
+                            </div>
+                            <hr class="border-slate-200">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-950">Arabic</span>
+                                <span class="text-slate-500 font-medium">Native or Bilingual Proficiency</span>
+                            </div>
+                            <hr class="border-slate-200">
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-slate-950">French</span>
+                                <span class="text-slate-500 font-medium">Limited Working Proficiency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-award text-amber-500"></i> Honors & Academic Awards
+                        </h3>
+                        <div class="bg-amber-50/50 border border-amber-200 p-4 rounded-xl text-xs">
+                            <h4 class="font-bold text-slate-950">Top of the Class — M.Sc. Networks & Telecommunications</h4>
+                            <p class="text-amber-700 font-medium mt-0.5">Mustapha Stambouli University of Mascara (2017 - 2019)</p>
+                            <p class="text-slate-600 mt-1">Graduated with the absolute highest honors across the entire department division (Grade: A).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 border-t border-slate-200 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-5 gap-10">
+                <div class="md:col-span-2">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">Channels</span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-950 mt-3 mb-4">Establish Connection</h2>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6 text-justify">
+                        Feel free to get in touch. I maintain dedicated messaging endpoints to handle personal, institutional research, or network operations inquiries seamlessly.
+                    </p>
+                    
+                    <div class="space-y-3.5 text-xs text-slate-700">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-envelope text-slate-400 w-3.5 mt-0.5"></i>
+                            <div>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Personal Contact</p>
+                                <a href="mailto:a_benhalima@yahoo.com" class="hover:text-blue-600 font-semibold text-slate-900 break-all">a_benhalima@yahoo.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-briefcase text-blue-500 w-3.5 mt-0.5"></i>
+                            <div>
+                                <p class="text-[9px] font-bold text-blue-500 uppercase tracking-wider">Telecom Infrastructure (Corporate)</p>
+                                <a href="mailto:abderrahmane.benhali@djezzy.dz" class="hover:text-blue-600 font-semibold text-slate-900 break-all">abderrahmane.benhali@djezzy.dz</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-graduation-cap text-indigo-500 w-3.5 mt-0.5"></i>
+                            <div>
+                                <p class="text-[9px] font-bold text-indigo-500 uppercase tracking-wider">Academic / PhD Enquiries</p>
+                                <span class="font-semibold text-slate-900 break-all">abderrahmane.benhalima@univ-mascara.dz</span>
+                            </div>
+                        </div>
+                        
+                        <div class="h-px bg-slate-200 my-1"></div>
+
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-phone text-slate-400 w-3.5 mt-0.5"></i>
+                            <div>
+                                <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Personal Phone Lines</p>
+                                <span class="font-semibold text-slate-900">+213 790 107 421 / +213 666 201 374</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-phone-volume text-blue-500 w-3.5 mt-0.5"></i>
+                            <div>
+                                <p class="text-[9px] font-bold text-blue-500 uppercase tracking-wider">Corporate Desk (Djezzy)</p>
+                                <span class="font-semibold text-slate-900">+213 770 900 129</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-location-dot text-slate-400 w-3.5"></i>
+                            <span class="font-semibold text-slate-600">Mascara, Algeria (Zone 9, El Amel)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 bg-white p-5 md:p-6 rounded-2xl border border-slate-200 shadow-2xs">
+                    <form onsubmit="handleForm(event)" class="space-y-3.5">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Your Name</label>
+                                <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Email Address</label>
+                                <input type="email" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Subject</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Message Body</label>
+                            <textarea rows="4" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-slate-950 text-white py-2.5 rounded-lg font-medium text-xs hover:bg-blue-600 transition-colors shadow-2xs">
+                            Transmit Message <i class="fa-solid fa-paper-plane ml-1 text-[10px] opacity-70"></i>
+                        </button>
+                    </form>
+                    <div id="form-success" class="hidden mt-3 p-2 bg-emerald-50 text-emerald-700 text-[11px] font-medium rounded-lg text-center">
+                        Message simulation complete. Form endpoint acts ready for deployment integration!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-6 bg-white border-t border-slate-200 text-center text-[11px] text-slate-400 font-medium">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>©
+                <script>document.write(new Date().getFullYear())</script> Abderrahmane BENHALIMA.
+            </p>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="https://www.linkedin.com/in/AbderrahmaneBenhalima" target="_blank" class="hover:text-blue-600 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.researchgate.net/profile/Abderrahmane-Benhalima" target="_blank" class="hover:text-emerald-600 transition-colors"><i class="fa-brands fa-researchgate"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-xs', 'bg-white/80');
+            } else {
+                nav.classList.remove('shadow-xs', 'bg-white/80');
+            }
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function toggleEduDetails(elementId) {
+            const detailContainer = document.getElementById(elementId);
+            const icon = document.getElementById(elementId === 'master-courses' ? 'master-icon' : 'bachelor-icon');
+            detailContainer.classList.toggle('hidden');
+            if (detailContainer.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-chevron-down text-[10px]";
+            } else {
+                icon.className = "fa-solid fa-chevron-up text-[10px]";
+            }
+        }
+
+        function switchTab(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const tabs = document.querySelectorAll('#project-tabs button');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600', 'font-semibold');
+                tab.classList.add('text-slate-500');
+            });
+            
+            const targetedTab = document.getElementById(`tab-${category}`);
+            targetedTab.classList.remove('text-slate-500');
+            targetedTab.classList.add('text-blue-600', 'border-b-2', 'border-blue-600', 'font-semibold');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else if (card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function handleForm(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('form-success');
+            alertBox.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => alertBox.classList.add('hidden'), 4000);
+        }
+    </script>
 </body>
-
 </html>
